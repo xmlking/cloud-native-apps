@@ -14,7 +14,7 @@ You can configure filters dynamically loaded into Zuul to perform the following 
 * Static response handling: Building some responses directly at the edge instead of forwarding them to an internal cluster.
 * Multiregion resiliency: Routing requests across AWS regions in order to diversify our ELB usage and move our edge closer to our members.
 
-
+![Alt text](../deckset/images/api-gateway-pattern-fig7.png)
 
 ```
 http://localhost:8765/health
