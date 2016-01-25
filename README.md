@@ -34,3 +34,43 @@ Spring Cloud focuses on providing good out of box experience for typical use cas
 ### Application Services 
 
 
+### Start on Local Machine
+
+Starting  Order
+> RabbitMQ -> Euraka -> Config -> (Producer, GORM, ...), -> (Zuul,  Turbine, Hystrix Dashboard)
+
+Start up Eureka
+```
+cd eureka
+spring run .
+```
+
+Start up Config server
+```
+cd config
+spring run .
+```
+
+Start up Producer Service
+```
+cd producer
+spring run .
+```
+
+Start up Aggregate Application
+```
+cd app
+spring run .
+```
+
+Start up API Gateway
+```
+cd zuul
+spring run .
+```
+
+Start up Monitoring Application
+```
+cd hystrix-dashboard
+spring run .
+```

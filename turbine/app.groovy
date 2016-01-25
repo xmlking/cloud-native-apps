@@ -3,6 +3,7 @@
 
 import org.springframework.cloud.netflix.turbine.EnableTurbine
 
+@CompileStatic
 @EnableTurbine
 @EnableDiscoveryClient
 class Turbine {

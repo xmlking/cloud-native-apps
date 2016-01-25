@@ -1,2 +1,3 @@
+@CompileStatic
 @EnableEurekaServer
 class EurekaServer { }

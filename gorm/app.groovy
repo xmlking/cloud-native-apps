@@ -1,7 +1,9 @@
+@Grab("spring-cloud-starter-bus-amqp")
 @Grab("spring-boot-starter-actuator")
 @Grab("org.grails:gorm-hibernate4-spring-boot:5.0.0.RC3")
 @Grab("com.h2database:h2:1.4.190")
 import grails.persistence.*
+@EnableDiscoveryClient
 @EnableTransactionManagement
 @RestController
 class Example {
@@ -21,15 +23,10 @@ class Example {
         [person: "$person.firstName $person.lastName"]
     }
 
-//    @PostConstruct
-//    void init() {
-//        Person.withTransaction {
-//            new Person(firstName:"Sumanth", lastName:"Chinthagunta").save()
-//        }
-//    }
 }
 
 @Entity
+//@Resource(uri="/persons")
 class Person {
     String firstName
     String lastName

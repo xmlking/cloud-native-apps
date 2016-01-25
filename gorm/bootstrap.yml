@@ -1,0 +1,19 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: gorm
+  cloud:
+    config:
+      enabled: true
+      discovery:
+        enabled: true
+        serviceId: CONFIG
+
+eureka:
+  instance:
+    nonSecurePort: ${server.port:8082}
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/

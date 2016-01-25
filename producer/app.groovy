@@ -1,9 +1,11 @@
 @Grab("spring-cloud-starter-bus-amqp")
 
+
 @EnableDiscoveryClient
+@EnableCircuitBreaker
 @RestController
 @Log
-public class Application {
+class Application {
 
     @Autowired
     Greeter greeter
@@ -21,6 +23,19 @@ public class Application {
     @RequestMapping("/")
     String home() {
         "${greeter.greeting} World!"
+    }
+
+    @RequestMapping(value = '/questions/{questionId}')
+    @HystrixCommand(fallbackMethod = "defaultQuestion")
+    def question(@PathVariable String questionId) {
+        if(Math.random() < 0.5) {
+            throw new RuntimeException('random');
+        }
+        [questionId: questionId]
+    }
+
+    def defaultQuestion(String questionId) {
+       [questionId: 'defaultQuestion']
     }
 
 }
