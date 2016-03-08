@@ -17,3 +17,12 @@ http://localhost:8082/metrics
 http://localhost:8082/trace
 http://localhost:8082/dump
  
+Run
+```
+spring run *.groovy
+```
+
+Test
+```bash
+spring test  *.groovy
+```

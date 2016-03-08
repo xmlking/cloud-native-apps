@@ -1,0 +1,22 @@
+# File: grails-app/conf/bootstrap.yml
+server:
+  port: 8085
+
+spring:
+  application:
+    name: bookstore
+  cloud:
+    config:
+      enabled: true
+      discovery:
+        enabled: true
+        serviceId: CONFIG
+
+eureka:
+  instance:
+    nonSecurePort: ${server.port:8085}
+#    metadataMap:
+#      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/

@@ -16,3 +16,14 @@ To simulate the github webhook:
 ```bash
 http --json POST :8888/monitor X-Github-Event:"push" commits:='[{"modified": ["eureka.yml"] }]'
 ```
+
+
+```
+ConfigServer -----------------
+                             |
+                    ------------------
+ServiceA ---------- | SpringCloudBus |
+                    ------------------
+                             |
+ServiceB ---------------------
+```

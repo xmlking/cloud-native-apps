@@ -31,6 +31,8 @@ Spring Cloud focuses on providing good out of box experience for typical use cas
 * **Logging:** Centralized logging - Logstash, ES, Kibana (LEK)
 * **Swagger:** API Docs 
 
+
+![](./deckset/images/system-landscape.png)
 ### Application Services 
 
 

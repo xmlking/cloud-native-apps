@@ -1,6 +1,6 @@
 @Grab("spring-cloud-starter-bus-amqp")
 
-@CompileStatic
+@groovy.transform.CompileStatic
 @EnableDiscoveryClient
 @EnableHystrixDashboard
 class HystrixDashboard {
