@@ -1,6 +1,8 @@
 ### Project ###
 NOTES.md
 deckset
+spring-boot-mybatis-parent
+spring-boot-mybatis-sample
 
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
