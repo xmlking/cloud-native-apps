@@ -1,6 +1,6 @@
 @Grab("spring-cloud-starter-bus-amqp")
 @Grab("spring-boot-starter-actuator")
-@Grab("org.grails:gorm-hibernate4-spring-boot:5.0.0.RC3")
+@Grab("org.grails:gorm-hibernate4-spring-boot:5.0.10.RELEASE")
 @Grab("com.h2database:h2:1.4.190")
 import grails.persistence.*
 import static java.util.Optional.ofNullable

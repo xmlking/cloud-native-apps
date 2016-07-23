@@ -35,7 +35,6 @@ Spring Cloud focuses on providing good out of box experience for typical use cas
 ![](./deckset/images/system-landscape.png)
 ### Application Services 
 
-
 ### Start on Local Machine
 
 Starting  Order
