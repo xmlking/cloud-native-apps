@@ -1,5 +1,4 @@
-@Grab("spring-cloud-starter-bus-amqp")
-
+@Grab("spring-cloud-starter-bus-kafka")
 @groovy.transform.CompileStatic
 @EnableZuulProxy
 @EnableDiscoveryClient

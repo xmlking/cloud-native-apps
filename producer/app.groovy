@@ -1,6 +1,5 @@
-@Grab("spring-cloud-starter-bus-amqp")
-
-
+//@Grab("spring-cloud-netflix-hystrix-stream")
+@Grab("spring-cloud-starter-bus-kafka")
 @EnableDiscoveryClient
 @EnableCircuitBreaker
 @RestController

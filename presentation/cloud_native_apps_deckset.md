@@ -63,7 +63,7 @@ The benefits of asynchronous processing would be negated if the communication of
     External configuration management backed by a git repository
     Refreshable configuration. Covered extensively in 9 Configuration - Comes from the environment[p]
 * Spring Cloud Bus
-    Event bus implemented as a lightweight AMQP message broker used to broadcast state changes or other management instructions. The bus currently supports sending messages to all nodes listening or all nodes for a particular service that satisfy a particular criteria.  There are currently two endpoints implemented /bus/env and /bus/refresh.
+    Event bus implemented as a lightweight Kafka message broker used to broadcast state changes or other management instructions. The bus currently supports sending messages to all nodes listening or all nodes for a particular service that satisfy a particular criteria.  There are currently two endpoints implemented /bus/env and /bus/refresh.
 * Spring Cloud Security 
     Set of primitives for building secure applications. If you deploy apps on Cloud Foundry that use HTTP Basic Security, then the best way to configure security is through service credentials, e. g. in the URI of the user provided service, since then it doesn’t even need to be in a config file. 
 ---
@@ -305,11 +305,12 @@ greeting: Hola
 
 # Config Server `app.groovy`
 
-```java
-@Grab("org.springframework.cloud:spring-cloud-starter-bus-amqp:1.0.0.RC1")
-@Configuration
-@EnableAutoConfiguration
+```groovy
+@Grab("spring-cloud-config-monitor")
+@Grab("spring-cloud-starter-bus-kafka")
+@groovy.transform.CompileStatic
 @EnableConfigServer
+@EnableDiscoveryClient
 class ConfigServer {
 }
 ```
@@ -345,7 +346,7 @@ greeting: Bonjour
 # Config Client `app.groovy`
 
 ```java
-@Grab("org.springframework.cloud:spring-cloud-starter-bus-amqp:1.0.0.RC1")
+@Grab("spring-cloud-starter-bus-kafka")
 @RestController
 class BasicConfig {
 

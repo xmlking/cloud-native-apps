@@ -38,7 +38,19 @@ Spring Cloud focuses on providing good out of box experience for typical use cas
 ### Start on Local Machine
 
 Starting  Order
-> RabbitMQ -> Euraka -> Config -> (Producer, GORM, ...), -> (Zuul,  Turbine, Hystrix Dashboard)
+> Kafka -> Euraka -> Config -> (Producer, GORM, ...), -> (Zuul,  Turbine, Hystrix Dashboard)
+
+Start up Tweetable
+```
+cd tweetable
+spring run .
+```
+
+Start up Mongo
+```
+cd mongo
+spring run .
+```
 
 Start up Eureka
 ```
@@ -55,6 +67,12 @@ spring run .
 Start up Producer Service
 ```
 cd producer
+spring run .
+```
+
+Start up Gorm Service
+```
+cd gorm
 spring run .
 ```
 

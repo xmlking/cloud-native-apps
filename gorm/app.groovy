@@ -1,10 +1,8 @@
-@Grab("spring-cloud-starter-bus-amqp")
+@Grab("spring-cloud-starter-bus-kafka")
 @Grab("spring-boot-starter-actuator")
 @Grab("org.grails:gorm-hibernate4-spring-boot:5.0.10.RELEASE")
-@Grab("com.h2database:h2:1.4.190")
+@Grab("com.h2database:h2:1.4.192")
 import grails.persistence.*
-import static java.util.Optional.ofNullable
-import org.springframework.http.HttpStatus
 import static org.springframework.web.bind.annotation.RequestMethod.*
 
 @EnableDiscoveryClient
@@ -32,33 +30,25 @@ class GormPerson {
     @HystrixCommand(fallbackMethod = "defaultPerson")
     def findById(@PathVariable String personId) {
         log.info  personId
-        def p
         Person.withTransaction {
-            p = Person.get(personId)
+            def p = Person.get(personId)
             if(p) {
                 return [firstName: p.firstName, lastName: p.lastName]
             }
             throw new IllegalArgumentException("demo fallBack")
-            //return new ResponseEntity( p , p ? HttpStatus.OK : HttpStatus.BAD_REQUEST)
         }
     }
 
     def defaultPerson(String questionId) {
+
+        if(questionId == "5") {
+            throw new IllegalArgumentException("must fail")
+        }
         Person.withTransaction {
             def p = Person.get(1)
             return [firstName: p.firstName, lastName: p.lastName]
         }
     }
-
-//    @PostConstruct
-//    void populatePeople() {
-//        Person.withTransaction{
-//            Person.saveAll( [ new Person(firstName:"sumo", lastName: "demo"),
-//                            new Person(firstName:"sumo1", lastName: "demo1"),
-//                            new Person(firstName:"sumo2", lastName: "demo2"),
-//                            new Person(firstName:"sumo3", lastName: "demo3" ) ] )
-//        }
-//    }
 }
 
 

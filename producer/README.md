@@ -1,10 +1,15 @@
 Producer
 ---------
-
 demonstrate dynamic config 
+This API is Hystrix enabled
 
 http://localhost:8081/
 http://localhost:8081/counter
+
+
+Hystrix Dashboard
+http://localhost:8989/hystrix/monitor?stream=http%3A%2F%2Flocalhost%3A8081%2Fhystrix.stream
+
 
 ### Run 
 

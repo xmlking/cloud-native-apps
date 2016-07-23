@@ -1,14 +1,14 @@
 config-server
-------------
+=============
 
 Config server need to have the following dependencies
 ```groovy
 @Grab("spring-cloud-config-monitor")
-@Grab("spring-cloud-starter-bus-amqp")
+@Grab("spring-cloud-starter-bus-kafka")
 ```
 Config clients need to have the following dependencies
 ```groovy
-@Grab("spring-cloud-starter-bus-amqp")
+@Grab("spring-cloud-starter-bus-kafka")
 ```
 
 
