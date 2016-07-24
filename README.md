@@ -32,7 +32,7 @@ Spring Cloud focuses on providing good out of box experience for typical use cas
 * **Swagger:** API Docs 
 
 
-![](./deckset/images/system-landscape.png)
+![](./presentation/images/system-landscape.png)
 ### Application Services 
 
 ### Start on Local Machine
