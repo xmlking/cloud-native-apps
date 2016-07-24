@@ -37,6 +37,7 @@ brew install jmeter
 get SDKMAN! from sdkman.io 
 
 > On Windows: install SDKMAN via Git-Bash command prompt.
+> And add respective executable paths to Windows PATH Environment variable.
 
 Install following software 
 
