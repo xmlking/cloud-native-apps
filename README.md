@@ -40,25 +40,29 @@ Spring Cloud focuses on providing good out of box experience for typical use cas
 Starting  Order
 > Kafka -> Euraka -> Config -> (Producer, GORM, ...), -> (Zuul,  Turbine, Hystrix Dashboard)
 
-Start up Tweetable
+#### Quickstart examples 
+
+Starting Tweetable App
 ```
-cd tweetable
+cd Tweetable Example
 spring run .
 ```
 
-Start up Mongo
+Starting Mongo Example
 ```
 cd mongo
 spring run .
 ```
 
-Start up Eureka
+#### full-stack cloud native examples 
+
+Starting Eureka Server
 ```
 cd eureka
 spring run .
 ```
 
-Start up Config server
+Starting Config Server
 ```
 cd config
 spring run .
@@ -70,25 +74,25 @@ cd producer
 spring run .
 ```
 
-Start up Gorm Service
+Starting Gorm Service
 ```
 cd gorm
 spring run .
 ```
 
-Start up Aggregate Application
+Starting Aggregate Service
 ```
 cd app
 spring run .
 ```
 
-Start up API Gateway
+Starting API Gateway
 ```
 cd zuul
 spring run .
 ```
 
-Start up Monitoring Application
+Starting Monitoring App
 ```
 cd hystrix-dashboard
 spring run .
