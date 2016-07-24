@@ -59,7 +59,7 @@ cd mongo
 spring run .
 ```
 
-#### full-stack cloud native examples 
+#### Full-stack cloud native examples 
 
 Starting Eureka Server
 ```
