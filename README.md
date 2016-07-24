@@ -35,7 +35,12 @@ Spring Cloud focuses on providing good out of box experience for typical use cas
 ![](./presentation/images/system-landscape.png)
 ### Application Services 
 
-### Start on Local Machine
+#### Getting Started
+1. [Prerequisites](./Prerequisites.md)
+2. [Setup](./Setup.md)
+
+
+#### Start on Local Machine
 
 Starting  Order
 > Kafka -> Euraka -> Config -> (Producer, GORM, ...), -> (Zuul,  Turbine, Hystrix Dashboard)
