@@ -1,0 +1,19 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: aggregator
+  cloud:
+    config:
+      enabled: true
+      discovery:
+        enabled: true
+        serviceId: CONFIG
+
+eureka:
+  instance:
+    nonSecurePort: ${server.port:8085}
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/
