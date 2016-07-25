@@ -1,0 +1,4 @@
+rootProject.name = 'cloud-native-apps'
+include 'streaming'
+include 'mybatis'
+include 'aggregator'

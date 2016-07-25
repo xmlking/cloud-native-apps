@@ -13,6 +13,7 @@ Prerequisites
     for Mac: `/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/security/`
     (Note: these jars will be already there so you have to overwrite them)
 
+> test JCE is installed with `groovy TestUCE.groovy` command.
 
 ### Docker
 1. Install Docker CLI and Docker Engine (Mac or Linux only)

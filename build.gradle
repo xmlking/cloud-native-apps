@@ -1,0 +1,46 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
+    }
+}
+
+plugins {
+    id "idea"
+}
+
+group "com.sumo.cloudnative"
+
+subprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        compile "ch.qos.logback:logback-classic:$logbackVersion"
+    }
+    jar {
+        manifest {
+            attributes(
+                    "Implementation-Version": version,
+                    'Build-Time': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+            )
+        }
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom 'org.springframework.cloud:spring-cloud-starter-parent:Brixton.RELEASE'
+        }
+    }
+
+}
+
+wrapper {
+    gradleVersion = gradleWrapperVersion
+}

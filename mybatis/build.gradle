@@ -1,0 +1,46 @@
+plugins {
+    id "com.zoltu.kotlin" version "1.0.2"
+    id "application"
+    id "com.github.johnrengelman.shadow" version "1.2.3"
+}
+
+apply plugin: 'spring-boot'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    jcenter()
+    maven {
+        name "confluent"
+        url 'http://packages.confluent.io/maven/'
+    }
+    maven {
+        name "jebrains-all"
+        url "http://repository.jetbrains.com/all"
+    }
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+
+    compile "org.mybatis.spring.boot:mybatis-spring-boot-starter:$mybatisBootVersion"
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework.cloud:spring-cloud-starter-bus-kafka"
+//    compile "org.springframework.cloud:spring-cloud-starter-config"
+    compile 'org.springframework.cloud:spring-cloud-starter-eureka'
+
+//    runtime "mysql:mysql-connector-java"
+    runtime "com.h2database:h2"
+
+    testCompile "com.nhaarman:mockito-kotlin:$mockitoKotlinVersion"
+    testCompile "org.jetbrains.spek:spek:$spekVersion"
+}
+
+bootRepackage {
+    it.mustRunAfter clean
+}
+
+task 8084 << {
+    bootRun.systemProperty 'server.port', '8084'
+}

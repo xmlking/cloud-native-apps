@@ -1,5 +1,5 @@
 cloud-native-apps
-------------------
+=================
 
 Step-by-step guide to build [12-Factor](http://12factor.net/) cloud native apps with *Spring Cloud*, *Netflix OSS*, 
 *Grails* and *AngularJS*

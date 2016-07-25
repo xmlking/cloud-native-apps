@@ -1,12 +1,20 @@
-cloud-native-apps
-------------------
+Setup
+=====
+**cloud-native-apps** Project setup
 
+### Clone
+```bash
+mkdir /Developer/Work/boot
+cd /Developer/Work/boot
+git clone https://github.com/xmlking/cloud-native-apps.git
+git clone https://github.com/xmlking/cloud-config
+mkdir /Developer/Work/SPA
+cd /Developer/Work/SPA
+git clone https://github.com/xmlking/spa-starter-kit.git
+```
 
-
-### Prerequisites 
-Follow instructions [here](./PREREQUISITES.md)
-
-create-app MyApp --profile=web-micro
+### IDE
+Import each project into IDE (IntelliJ preferred)
 
 INFRASTRUCTURE SERVERS
 1. API Gateway - gatekeeper
@@ -20,17 +28,6 @@ INFRASTRUCTURE SERVERS
 2. API Docs 
 3. Resiliency 
 4. Reactive Programming  
-
-Features 
-Distributed/versioned configuration
-Service registration and discovery
-Routing
-Service-to-service calls
-Load balancing
-Circuit Breakers
-Global locks
-Leadership election and cluster state
-Distributed messaging
 
 
 
@@ -88,10 +85,19 @@ https://github.com/bijukunjummen/sample-spring-hystrix
 Circuit Breaker
 https://docs.pivotal.io/spring-cloud-services/circuit-breaker/writing-client-applications.html
 
+Kotlin
+https://github.com/Barlog-M/spring-cloud-turbine-example
+
 Creating colorful Banners for Spring Boot Applications
 http://patorjk.com/software/taag/#p=display&f=Jacky&t=SUMANTH
 curl -F "image=@/my/img.jpg"  -H "Content-Type: multipart/form-data"  bootiful-banners.cfapps.io/banner
 
+Encript 
+https://bushkarl.gitbooks.io/spring-cloud/content/spring_boot_cloud_cli/encryption_and_decryption.html
+
+Reading 
+https://bushkarl.gitbooks.io/spring-cloud/content/index.html
+http://cloud.spring.io/spring-cloud-netflix/spring-cloud-netflix.html
 
 grails create-app bookstore --profile web --features mongodb,asset-pipeline
 grails create-app bookstore --profile rest-api --features hibernate,security,json-views
