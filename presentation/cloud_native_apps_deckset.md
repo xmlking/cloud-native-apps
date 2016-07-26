@@ -22,35 +22,69 @@ Sumanth Chinthagunta ([@xmlking](http://twitter.com/xmlking))
 
 ---
 
-# haracteristics of Cloud Ntive applications
-* Shared State is evil
-    * Statelessness leads to scalability
-    * Coordination of shared state across peers impacts performance
-* Configuration via environment or via an external configuration server (github/Zookeeper/etcd)
-* Inject external dependency connection and credential information via services
-* Console based logging
-* Monitoring via services and frameworks
-* Local development, cloud production
-* Execute application as one or more stateless processes enabling scale-out via a process model
-* Explicitly declare and isolate dependencies
-* One codebase tracked in revision control, multiple deploys
-* Fast startup and graceful shutdown
-* Make no distinction between local and third party services
-* Treat logs as event streams
-* Immutable code with instant rollback
-* Asynchronous Integration of Services with Events
-    * Event Collaboration
-    * Event Sourcing
-* Functional Reactive Pogramming 
+# Characteristics of Cloud Ntive applications
+
+- Shared State is evil
+    - Statelessness leads to scalability
+    - Coordination of shared state across peers impacts performance
+- Configuration via environment or via an external configuration server (github/Zookeeper/etcd)
+- Inject external dependency connection and credential information via services
+^
+- Console based logging
+- Monitoring via services and frameworks
+- Local development, cloud production
+- Execute application as one or more stateless processes enabling scale-out via a process model
+- Explicitly declare and isolate dependencies
+- One codebase tracked in revision control, multiple deploys
+- Fast startup and graceful shutdown
+- Make no distinction between local and third party services
+- Treat logs as event streams
+- Immutable code with instant rollback
+- Asynchronous Integration of Services with Events
+    - Event Collaboration
+    - Event Sourcing
+- Functional Reactive Pogramming 
 
 ---
+
+# Characteristics of Cloud Ntive applications
+
+- Console based logging
+- Monitoring via services and frameworks
+- Local development, cloud production
+- Execute application as one or more stateless processes enabling scale-out via a process model
+
+---
+
+# Characteristics of Cloud Ntive applications
+
+- Explicitly declare and isolate dependencies
+- One codebase tracked in revision control, multiple deploys
+- Fast startup and graceful shutdown
+- Make no distinction between local and third party services
+- Treat logs as event streams
+
+---
+
+# Characteristics of Cloud Ntive applications
+
+- Immutable code with instant rollback
+- Asynchronous Integration of Services with Events
+    - Event Collaboration
+    - Event Sourcing
+- Functional Reactive Pogramming 
+
+---
+
 # Reactive Applications 
 A new architectural style called Reactive applications has emerged to allow developers to build systems that are event-driven, scalable, responsive and resilient. 
 The key building blocks for event driven reactive applications are asynchronous sending of events, non-blocking, decoupling of event generation and processing, isolation, observable models, event streams and stateful clients. 
 The entire solution needs to be asynchronous from the top(browser) to the bottom (web layer  & service components).
 
+---
+
 # Reactive Streams 
-is an initiative to provide a standard for asynchronous stream processing with non-blocking back pressure on the JVM.
+Is an initiative to provide a standard for asynchronous stream processing with non-blocking back pressure on the JVM.
 The main goal of Reactive Streams is to govern the exchange of stream data across an asynchronous boundary—think passing elements on to another thread or thread-pool—while ensuring that the receiving side is not forced to buffer arbitrary amounts of data. 
 In other words, backpressure is an integral part of this model in order to allow the queues which mediate between threads to be bounded. 
 The benefits of asynchronous processing would be negated if the communication of backpressure were synchronous.
@@ -59,14 +93,23 @@ The benefits of asynchronous processing would be negated if the communication of
 
 # Components 
 
-* Spring Cloud Config 
+- Spring Cloud Config 
     External configuration management backed by a git repository
     Refreshable configuration. Covered extensively in 9 Configuration - Comes from the environment[p]
-* Spring Cloud Bus
+- Spring Cloud Bus
     Event bus implemented as a lightweight Kafka message broker used to broadcast state changes or other management instructions. The bus currently supports sending messages to all nodes listening or all nodes for a particular service that satisfy a particular criteria.  There are currently two endpoints implemented /bus/env and /bus/refresh.
-* Spring Cloud Security 
+- Spring Cloud Security 
     Set of primitives for building secure applications. If you deploy apps on Cloud Foundry that use HTTP Basic Security, then the best way to configure security is through service credentials, e. g. in the URI of the user provided service, since then it doesn’t even need to be in a config file. 
+
 ---
+
+# Components 
+
+- Spring Cloud Security 
+    Set of primitives for building secure applications. If you deploy apps on Cloud Foundry that use HTTP Basic Security, then the best way to configure security is through service credentials, e. g. in the URI of the user provided service, since then it doesn’t even need to be in a config file. 
+
+---
+
 # Define: Microservice
 > Loosely coupled service oriented architecture with bounded contexts...
 -- Adrian Cockcroft
