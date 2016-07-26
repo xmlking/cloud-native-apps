@@ -27,6 +27,7 @@ grails> create-domain-resource Comment
 grails> ngGenerateAll blog.Post true
 grails> ngGenerateAll blog.Tag true
 grails> ngGenerateAll blog.Comment true
+grails> ngGenerateAll blog.Todo true
 ```
 
 # Run
@@ -42,9 +43,13 @@ To get a token, make a request to the login endpoint provided by the plugin:
 ```bash
 curl -i -H "Content-Type: application/json" --data '{"username":"user","password":"pass"}' 0:8080/api/login
 ```
+Verify access_token with https://jwt.io/
+> default secret : qrD6h8K6S9503Q06Y6Rfk21TErImPYqa
 
 Copy the access_token part of the response, and make a request to the original endpoint, passing the token in a header:
 
 ```bash
 curl -i -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9...." 0:8080/api/todos
 ```
+
+curl -i -H "Authorization: Bearer " 0:8080/api/todos

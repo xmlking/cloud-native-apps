@@ -1,0 +1,21 @@
+<div class="nav" role="navigation">
+    <ul>
+        <li><a ui-sref="index" class="home">Home</a></li>
+        <li><a ui-sref="todo.list" class="list">Todo List</a></li>
+    </ul>
+</div>
+<div id="create-todo" class="content scaffold-create" role="main">
+    <h1>Create Todo</h1>
+    <ul class="errors" role="alert" ng-if="vm.errors">
+        <li ng-repeat="error in vm.errors">{{error.message}}</li>
+    </ul>
+
+    <form name="saveTodo" ng-submit="vm.saveTodo()">
+        <fieldset class="form">
+            <ng-include src="'/blog/todo/form.html'"></ng-include>
+        </fieldset>
+        <fieldset class="buttons">
+            <input type="submit" name="create" class="save" value="Create" />
+        </fieldset>
+    </form>
+</div>

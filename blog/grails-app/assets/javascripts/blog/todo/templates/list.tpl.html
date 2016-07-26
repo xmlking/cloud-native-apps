@@ -1,0 +1,34 @@
+<div class="nav" role="navigation">
+    <ul>
+        <li><a ui-sref="index" class="home">Home</a></li>
+        <li><a ui-sref="todo.create" class="create">New Todo</a></li>
+    </ul>
+</div>
+<div id="list-todo" class="content scaffold-list" role="main">
+    <h1>Todo List</h1>
+    <table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Description</th>
+      <th>Done</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-class="{'even': $index%2 == 0, 'odd': $index%2 == 1}" ng-repeat="todo in vm.todoList">
+      <td>
+        <a ui-sref="todo.show({id: todo.id})">{{todo.id}}</a>
+      </td>
+      <td>
+        <span>{{todo.description}}</span>
+      </td>
+      <td>
+        <span>{{todo.done}}</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    <!--    <div class="pagination">
+            <g:paginate total="${partCount ?: 0}" />
+        </div>-->
+</div>
