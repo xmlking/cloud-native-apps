@@ -49,7 +49,7 @@ Starting  Order
 
 Starting Tweetable App
 ```
-cd Tweetable Example
+cd tweetable
 spring run .
 ```
 

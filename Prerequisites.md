@@ -50,7 +50,10 @@ Install following software
      maven 3.3.9
      gradle  2.14.1
      springboot 1.3.5.RELEASE
-     spring install org.springframework.cloud:spring-cloud-cli:1.2.0.BUILD-SNAPSHOT
+
+```
+spring install org.springframework.cloud:spring-cloud-cli:1.2.0.BUILD-SNAPSHOT
+```
 
  
 #### Infra Setup
