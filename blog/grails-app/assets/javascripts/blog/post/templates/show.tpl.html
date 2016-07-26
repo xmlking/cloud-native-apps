@@ -1,0 +1,65 @@
+<div class="nav" role="navigation">
+    <ul>
+        <li><a ui-sref="index" class="home">Home</a></li>
+        <li><a class="list" ui-sref="post.list" class="list">Post List</a></li>
+        <li><a class="create" ui-sref="post.create" class="create">New Post</a></li>
+    </ul>
+</div>
+<div id="show-part" class="content scaffold-show" role="main">
+    <h1>Show Post</h1>
+    <ol class="property-list post">
+  <li class="fieldcontain">
+    <span id="comments-label" class="property-label">Comments</span>
+    <div class="property-value" aria-labelledby="comments-label">
+      <ul>
+        <li ng-repeat="comment in vm.post.comments">
+          <a ui-sref="comment.show({id: comment.id})">{{comment.toString()}}</a>
+        </li>
+      </ul>
+    </div>
+  </li>
+  <fieldset class="embedded postContent">
+    <legend>Post Content</legend>
+    <li class="fieldcontain">
+      <span id="postContent.published-label" class="property-label">Published</span>
+      <div class="property-value" aria-labelledby="postContent.published-label">
+        <span>{{vm.post.postContent.published | date:'yyyy-MM-dd HH:mm:ss Z'}}</span>
+      </div>
+    </li>
+    <li class="fieldcontain">
+      <span id="postContent.title-label" class="property-label">Title</span>
+      <div class="property-value" aria-labelledby="postContent.title-label">
+        <span>{{vm.post.postContent.title}}</span>
+      </div>
+    </li>
+    <li class="fieldcontain">
+      <span id="postContent.body-label" class="property-label">Body</span>
+      <div class="property-value" aria-labelledby="postContent.body-label">
+        <span>{{vm.post.postContent.body}}</span>
+      </div>
+    </li>
+  </fieldset>
+  <li class="fieldcontain">
+    <span id="url-label" class="property-label">Url</span>
+    <div class="property-value" aria-labelledby="url-label">
+      <span>{{vm.post.url}}</span>
+    </div>
+  </li>
+  <li class="fieldcontain">
+    <span id="tags-label" class="property-label">Tags</span>
+    <div class="property-value" aria-labelledby="tags-label">
+      <ul>
+        <li ng-repeat="tag in vm.post.tags">
+          <a ui-sref="tag.show({id: tag.id})">{{tag.toString()}}</a>
+        </li>
+      </ul>
+    </div>
+  </li>
+</ol>
+    <form ng-submit="vm.delete()">
+        <fieldset class="buttons">
+            <a class="edit" ui-sref="post.edit({id: vm.post.id})">Edit</a>
+            <input class="delete" type="submit" value="Delete" onclick="return confirm('Are you sure?');" />
+        </fieldset>
+    </form>
+</div>

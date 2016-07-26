@@ -1,0 +1,21 @@
+<div class="nav" role="navigation">
+    <ul>
+        <li><a ui-sref="index" class="home">Home</a></li>
+        <li><a ui-sref="post.list" class="list">Post List</a></li>
+    </ul>
+</div>
+<div id="edit-post" class="content scaffold-edit" role="main">
+    <h1>Edit Post</h1>
+    <ul class="errors" role="alert" ng-if="vm.errors">
+        <li ng-repeat="error in vm.errors">{{error.message}}</li>
+    </ul>
+
+    <form name="updatePost" ng-submit="vm.updatePost()">
+        <fieldset class="form">
+            <ng-include src="'/blog/post/form.html'"></ng-include>
+        </fieldset>
+        <fieldset class="buttons">
+            <input type="submit" class="save" value="Update" />
+        </fieldset>
+    </form>
+</div>

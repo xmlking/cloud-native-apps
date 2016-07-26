@@ -24,8 +24,8 @@ gradle aggregator:build
 Start [mybatis](../mybatis/) service.  
 
 ```bash
-gradle  mybatis:bootRun 
-# java -jar mybatis/build/libs/mybatis-0.1.0-SNAPSHOT.jar
+gradle  aggregator:bootRun 
+# java -jar aggregator/build/libs/aggregator-0.1.0-SNAPSHOT.jar
 ```
 
 verify it is functioning at [http://localhost:8083](http://localhost:8083)
@@ -56,5 +56,5 @@ Go back to [http://localhost:7211](http://localhost:8085) and you should see bot
 
 ### Test
 http://localhost:8085/
-http://localhost:8085/members
 http://localhost:8085/home
+http://localhost:8085/members

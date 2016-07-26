@@ -1,0 +1,14 @@
+<fieldset class="form">
+  <div class="fieldcontain required">
+    <label for="post">Post
+      <span class="required-indicator">*</span>
+    </label>
+    <select required="" name="post" id="post" ng-model="vm.comment.post" ng-options="post for post in vm.postList track by post.id"></select>
+  </div>
+  <div class="fieldcontain required">
+    <label for="text">Text
+      <span class="required-indicator">*</span>
+    </label>
+    <input required="" name="text" id="text" ng-model="vm.comment.text" type="text" />
+  </div>
+</fieldset>

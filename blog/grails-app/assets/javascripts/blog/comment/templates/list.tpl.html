@@ -1,0 +1,34 @@
+<div class="nav" role="navigation">
+    <ul>
+        <li><a ui-sref="index" class="home">Home</a></li>
+        <li><a ui-sref="comment.create" class="create">New Comment</a></li>
+    </ul>
+</div>
+<div id="list-comment" class="content scaffold-list" role="main">
+    <h1>Comment List</h1>
+    <table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Post</th>
+      <th>Text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-class="{'even': $index%2 == 0, 'odd': $index%2 == 1}" ng-repeat="comment in vm.commentList">
+      <td>
+        <a ui-sref="comment.show({id: comment.id})">{{comment.id}}</a>
+      </td>
+      <td>
+        <a ui-sref="post.show({id: comment.post.id})">{{comment.post.toString()}}</a>
+      </td>
+      <td>
+        <span>{{comment.text}}</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+    <!--    <div class="pagination">
+            <g:paginate total="${partCount ?: 0}" />
+        </div>-->
+</div>

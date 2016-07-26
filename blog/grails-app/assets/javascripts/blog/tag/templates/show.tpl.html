@@ -1,0 +1,24 @@
+<div class="nav" role="navigation">
+    <ul>
+        <li><a ui-sref="index" class="home">Home</a></li>
+        <li><a class="list" ui-sref="tag.list" class="list">Tag List</a></li>
+        <li><a class="create" ui-sref="tag.create" class="create">New Tag</a></li>
+    </ul>
+</div>
+<div id="show-part" class="content scaffold-show" role="main">
+    <h1>Show Tag</h1>
+    <ol class="property-list tag">
+  <li class="fieldcontain">
+    <span id="name-label" class="property-label">Name</span>
+    <div class="property-value" aria-labelledby="name-label">
+      <span>{{vm.tag.name}}</span>
+    </div>
+  </li>
+</ol>
+    <form ng-submit="vm.delete()">
+        <fieldset class="buttons">
+            <a class="edit" ui-sref="tag.edit({id: vm.tag.id})">Edit</a>
+            <input class="delete" type="submit" value="Delete" onclick="return confirm('Are you sure?');" />
+        </fieldset>
+    </form>
+</div>

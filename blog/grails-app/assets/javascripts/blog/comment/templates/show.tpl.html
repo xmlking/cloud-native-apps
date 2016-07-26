@@ -1,0 +1,30 @@
+<div class="nav" role="navigation">
+    <ul>
+        <li><a ui-sref="index" class="home">Home</a></li>
+        <li><a class="list" ui-sref="comment.list" class="list">Comment List</a></li>
+        <li><a class="create" ui-sref="comment.create" class="create">New Comment</a></li>
+    </ul>
+</div>
+<div id="show-part" class="content scaffold-show" role="main">
+    <h1>Show Comment</h1>
+    <ol class="property-list comment">
+  <li class="fieldcontain">
+    <span id="post-label" class="property-label">Post</span>
+    <div class="property-value" aria-labelledby="post-label">
+      <a ui-sref="post.show({id: vm.comment.post.id})">{{vm.comment.post.toString()}}</a>
+    </div>
+  </li>
+  <li class="fieldcontain">
+    <span id="text-label" class="property-label">Text</span>
+    <div class="property-value" aria-labelledby="text-label">
+      <span>{{vm.comment.text}}</span>
+    </div>
+  </li>
+</ol>
+    <form ng-submit="vm.delete()">
+        <fieldset class="buttons">
+            <a class="edit" ui-sref="comment.edit({id: vm.comment.id})">Edit</a>
+            <input class="delete" type="submit" value="Delete" onclick="return confirm('Are you sure?');" />
+        </fieldset>
+    </form>
+</div>

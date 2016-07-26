@@ -1,0 +1,21 @@
+<div class="nav" role="navigation">
+    <ul>
+        <li><a ui-sref="index" class="home">Home</a></li>
+        <li><a ui-sref="comment.list" class="list">Comment List</a></li>
+    </ul>
+</div>
+<div id="create-comment" class="content scaffold-create" role="main">
+    <h1>Create Comment</h1>
+    <ul class="errors" role="alert" ng-if="vm.errors">
+        <li ng-repeat="error in vm.errors">{{error.message}}</li>
+    </ul>
+
+    <form name="saveComment" ng-submit="vm.saveComment()">
+        <fieldset class="form">
+            <ng-include src="'/blog/comment/form.html'"></ng-include>
+        </fieldset>
+        <fieldset class="buttons">
+            <input type="submit" name="create" class="save" value="Create" />
+        </fieldset>
+    </form>
+</div>

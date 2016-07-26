@@ -1,0 +1,37 @@
+<fieldset class="form">
+  <div class="fieldcontain">
+    <label for="comments">Comments</label>
+    <a ui-sref="comment.create({postId: vm.post.id})">Add Comment</a>
+  </div>
+  <fieldset class="embedded postContent">
+    <legend>Post Content</legend>
+    <div class="fieldcontain required">
+      <label for="postContent.published">Published
+        <span class="required-indicator">*</span>
+      </label>
+      <input required="" name="postContent.published" id="postContent.published" ng-model="vm.post.postContent.published" type="date" placeholder="YYYY-MM-DD" />
+    </div>
+    <div class="fieldcontain required">
+      <label for="postContent.title">Title
+        <span class="required-indicator">*</span>
+      </label>
+      <input required="" name="postContent.title" id="postContent.title" ng-model="vm.post.postContent.title" type="text" />
+    </div>
+    <div class="fieldcontain required">
+      <label for="postContent.body">Body
+        <span class="required-indicator">*</span>
+      </label>
+      <input required="" name="postContent.body" id="postContent.body" ng-model="vm.post.postContent.body" type="text" />
+    </div>
+  </fieldset>
+  <div class="fieldcontain required">
+    <label for="url">Url
+      <span class="required-indicator">*</span>
+    </label>
+    <input required="" name="url" id="url" ng-model="vm.post.url" type="url" />
+  </div>
+  <div class="fieldcontain">
+    <label for="tags">Tags</label>
+    <select name="tags" id="tags" ng-model="vm.post.tags" ng-options="tag for tag in vm.tagList track by tag.id" multiple=""></select>
+  </div>
+</fieldset>

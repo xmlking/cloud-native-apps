@@ -45,7 +45,8 @@ Spring Cloud focuses on providing good out of box experience for typical use cas
 Starting  Order
 > Kafka -> Euraka -> Config -> (Producer, GORM, ...), -> (Zuul,  Turbine, Hystrix Dashboard)
 
-#### Quickstart examples 
+#### Quickstart examples
+> start following two apps, one at a time as they use same port.
 
 Starting Tweetable App
 ```
@@ -85,11 +86,20 @@ cd gorm
 spring run .
 ```
 
-Starting Aggregate Service
+Starting Monitoring App
 ```
-cd app
+cd hystrix-dashboard
 spring run .
 ```
+
+Starting mybatis Service
+
+> Follow instructions [mybatis](./mybatis/)
+
+
+Starting Aggregate Service
+ 
+> Follow instructions [aggregator](./aggregator/)
 
 Starting API Gateway
 ```
@@ -97,8 +107,7 @@ cd zuul
 spring run .
 ```
 
-Starting Monitoring App
-```
-cd hystrix-dashboard
-spring run .
-```
+Starting Blog App
+
+
+
