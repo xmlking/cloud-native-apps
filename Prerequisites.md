@@ -45,11 +45,11 @@ Install following software
 
     sdk i <software> <version>
      groovy 2.4.7
-     grails 3.2.0.M2
+     grails 3.2.0
      kotlin 1.1-M01
      maven 3.3.9
-     gradle  2.14.1
-     springboot 1.3.5.RELEASE
+     gradle  3.1
+     springboot 1.4.1.RELEASE
 
 ```
 spring install org.springframework.cloud:spring-cloud-cli:1.2.0.BUILD-SNAPSHOT

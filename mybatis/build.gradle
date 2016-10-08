@@ -1,28 +1,13 @@
-plugins {
-    id "com.zoltu.kotlin" version "1.0.2"
-    id "application"
-    id "com.github.johnrengelman.shadow" version "1.2.3"
-}
+apply plugin: 'nebula.kotlin'
 
-apply plugin: 'spring-boot'
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-repositories {
-    jcenter()
-    maven {
-        name "confluent"
-        url 'http://packages.confluent.io/maven/'
-    }
-    maven {
-        name "jebrains-all"
-        url "http://repository.jetbrains.com/all"
+junitPlatform {
+    engines {
+        include 'spek'
     }
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+//    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
 
     compile "org.mybatis.spring.boot:mybatis-spring-boot-starter:$mybatisBootVersion"
     compile "org.springframework.boot:spring-boot-starter-web"
@@ -34,7 +19,9 @@ dependencies {
     runtime "com.h2database:h2"
 
     testCompile "com.nhaarman:mockito-kotlin:$mockitoKotlinVersion"
-    testCompile "org.jetbrains.spek:spek:$spekVersion"
+    testCompile "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
+    testCompile "org.jetbrains.spek:spek-api:$spekVersion"
+    testRuntime "org.jetbrains.spek:spek-junit-platform-engine:$spekVersion"
 }
 
 bootRepackage {

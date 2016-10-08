@@ -1,8 +1,10 @@
 package com.sumo.cloudnative.streaming
 
+import com.nhaarman.mockito_kotlin.mock
 import org.jetbrains.spek.api.Spek
-import java.util.*
+import org.jetbrains.spek.api.SubjectSpek
 import kotlin.test.assertEquals
+import org.jetbrains.spek.api.dsl.*
 
 class TransformerSpecs : Spek({
 

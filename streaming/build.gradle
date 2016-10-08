@@ -1,11 +1,11 @@
-plugins {
-    id "com.zoltu.kotlin" version "1.0.2"
-    id "application"
-    id "com.github.johnrengelman.shadow" version "1.2.3"
-}
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'nebula.kotlin'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+junitPlatform {
+    engines {
+        include 'spek'
+    }
+}
 
 repositories {
     jcenter()
@@ -13,14 +13,10 @@ repositories {
         name "confluent"
         url 'http://packages.confluent.io/maven/'
     }
-    maven {
-        name "jebrains-all"
-        url "http://repository.jetbrains.com/all"
-    }
 }
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+
     compile "org.apache.kafka:kafka-clients:$kafkaVersion"
     compile ("org.apache.kafka:kafka-streams:$kafkaVersion") {
         exclude group: 'org.slf4j'
@@ -29,7 +25,10 @@ dependencies {
     compile "org.apache.avro:avro:$avroVersion"
 
     testCompile "com.nhaarman:mockito-kotlin:$mockitoKotlinVersion"
-    testCompile "org.jetbrains.spek:spek:$spekVersion"
+    testCompile "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
+    testCompile "org.jetbrains.spek:spek-api:$spekVersion"
+    testRuntime "org.jetbrains.spek:spek-junit-platform-engine:$spekVersion"
 }
 
-mainClassName = "com.sumo.cloudnative.streaming.Transformer"
+//mainClassName = "com.sumo.cloudnative.streaming.Transformer"
+mainClassName = "com.sumo.cloudnative.streaming.WordCounter"
