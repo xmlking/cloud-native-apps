@@ -9,7 +9,7 @@ Search API: Search REST API with `mybatis`.
 ### Build
 
 ```bash
-# gradle mybatis:installShadow
+# Skip - tests not working
 gradle mybatis:build
 ```
 

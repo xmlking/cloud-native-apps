@@ -56,9 +56,9 @@ open class WebConfig : WebMvcConfigurerAdapter() {
 }
 
 data class Member(
-        val id: Integer,
-        val name: String,
-        val phone: String
+        val id: Integer? = Integer(0),
+        val name: String? = null,
+        val phone: String? = null
 )
 
 @FeignClient("mybatis")
@@ -66,7 +66,7 @@ interface MybatisClient {
     @RequestMapping(value = "/", method = arrayOf(GET))
     fun hello(): String
 
-    @RequestMapping(value = "/", method = arrayOf(GET))
+    @RequestMapping(value = "/members", method = arrayOf(GET))
     fun members(): List<Member>
 }
 
@@ -81,20 +81,17 @@ interface ProducerClient {
 @RestController
 class AggregatorController @Autowired constructor(val mybatis: MybatisClient, val producer: ProducerClient) {
 
-    @RequestMapping("/", method = arrayOf(GET))
+    @GetMapping("/")
     fun hello(): String {
         return mybatis.hello();
     }
 
-    @RequestMapping("members",
-            method = arrayOf(GET),
-            consumes = arrayOf(MediaType.APPLICATION_JSON_UTF8_VALUE),
-            produces = arrayOf(MediaType.APPLICATION_JSON_UTF8_VALUE))
+    @GetMapping("members")
     fun members(): List<Member>  {
         return mybatis.members();
     }
 
-    @RequestMapping("home",  method = arrayOf(GET))
+    @GetMapping("home")
     fun home(): String  {
         return producer.home();
     }

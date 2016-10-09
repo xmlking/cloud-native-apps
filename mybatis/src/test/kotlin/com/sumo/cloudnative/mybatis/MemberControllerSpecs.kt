@@ -10,7 +10,7 @@ import org.jetbrains.spek.api.dsl.*
 
 class MemberControllerSpecs : Spek({
 
-    given("MemberController") {
+    describe(" Member Controller") {
         val date = Date()
         on("after training and saving model") {
 

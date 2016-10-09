@@ -1,5 +1,7 @@
 package com.sumo.cloudnative.streaming
 
+import java.util.*
+
 import com.nhaarman.mockito_kotlin.mock
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.SubjectSpek

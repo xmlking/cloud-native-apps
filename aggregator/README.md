@@ -24,6 +24,7 @@ gradle aggregator:build
 Start [mybatis](../mybatis/) service.  
 
 ```bash
+# skip -- tests not working yet
 gradle  aggregator:bootRun 
 # java -jar aggregator/build/libs/aggregator-0.1.0-SNAPSHOT.jar
 ```
@@ -52,7 +53,7 @@ gradle 8084  mybatis:bootRun
 # java -jar mybatis/build/libs/mybatis-0.1.0-SNAPSHOT.jar  --server.port=8084
 ```
 
-Go back to [http://localhost:7211](http://localhost:8085) and you should see both ports `8083` and `8085` in the output after a minute or two as you keep refreshing.
+Go back to [http://localhost:8085](http://localhost:8085) and you should see both ports `8083` and `8085` in the output after a minute or two as you keep refreshing.
 
 ### Test
 http://localhost:8085/
