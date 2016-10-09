@@ -20,14 +20,12 @@ Prerequisites
 2. Install OpenShift 3 CLI
 
 ### brew
-Install HTTPie
+Install kafkacat
 ```bash
 # Mac distribution
-$ brew install httpie
+$ brew install kafkacat
 # Debian-based distributions such as Ubuntu:
-$ apt-get install httpie
-# RPM-based distributions:
-$ yum install httpie
+$ apt-get install kafkacat
 ```
 jmeter
 ```bash
