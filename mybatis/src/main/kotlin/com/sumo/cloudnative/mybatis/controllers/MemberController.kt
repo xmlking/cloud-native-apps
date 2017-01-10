@@ -2,6 +2,7 @@ package com.sumo.cloudnative.mybatis
 
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.beans.factory.annotation.Autowired
@@ -17,12 +18,13 @@ class MemberController @Autowired constructor(var client: DiscoveryClient, val s
         return "MyBatis: " + localInstance.serviceId + ":" + localInstance.host + ":" + localInstance.port
     }
 
-    @RequestMapping("members",  method = arrayOf(RequestMethod.GET))
+    //@RequestMapping("members",  method = arrayOf(RequestMethod.GET))
+    @GetMapping("members")
     fun members(): List<Member>  {
         return service.findAll();
     }
 
-    @RequestMapping("members/{id}", method = arrayOf(RequestMethod.GET))
+    @GetMapping("members/{id}")
     fun member(@PathVariable id: Int): Member {
         print(id)
         return service.findById(id);
