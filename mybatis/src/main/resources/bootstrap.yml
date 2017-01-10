@@ -10,6 +10,9 @@ spring:
       discovery:
         enabled: true
         serviceId: CONFIG
+  sleuth:
+    sampler:
+      percentage: 1.0
 
 eureka:
   instance:
