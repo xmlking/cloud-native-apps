@@ -1,5 +1,6 @@
 //@Grab("spring-cloud-netflix-hystrix-stream")
 @Grab("spring-cloud-starter-bus-kafka")
+@Grab("spring-cloud-sleuth-stream")
 @EnableDiscoveryClient
 @EnableCircuitBreaker
 @RestController
