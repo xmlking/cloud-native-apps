@@ -14,6 +14,8 @@ dependencies {
     compile "org.springframework.cloud:spring-cloud-starter-bus-kafka"
     compile 'org.springframework.cloud:spring-cloud-starter-eureka'
     compile "org.springframework.cloud:spring-cloud-starter-feign"
+    compile "org.springframework.cloud:spring-cloud-sleuth-stream"
+    compile "org.springframework.boot:spring-boot-starter-aop"
 
     testCompile "com.nhaarman:mockito-kotlin:$mockitoKotlinVersion"
     testCompile "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
