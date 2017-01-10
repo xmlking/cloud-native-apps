@@ -4,6 +4,10 @@ server:
 spring:
   application:
     name: aggregator
+  sleuth:
+    sampler:
+      percentage: 1.0
+
   cloud:
     config:
       enabled: true
