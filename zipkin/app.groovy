@@ -6,7 +6,7 @@
 import org.springframework.cloud.sleuth.zipkin.stream.EnableZipkinStreamServer
 
 
-@EnableDiscoveryClient
+
 @EnableZipkinStreamServer
 class ZipKinServer {
 }
