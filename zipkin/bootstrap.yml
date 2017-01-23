@@ -1,0 +1,6 @@
+server:
+  port: 8988
+
+spring:
+  application:
+    name: ZipkinServer
