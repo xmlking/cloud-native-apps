@@ -17,6 +17,7 @@ dependencies {
 //    compile "org.springframework.boot:spring-boot-devtools"
     compile "org.springframework.cloud:spring-cloud-sleuth-stream"
     compile "org.springframework.boot:spring-boot-starter-aop"
+    compile "org.springframework.cloud:spring-cloud-starter-feign"
 
 //    runtime "mysql:mysql-connector-java"
     runtime "com.h2database:h2"
