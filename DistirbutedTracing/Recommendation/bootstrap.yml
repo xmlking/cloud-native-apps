@@ -1,0 +1,31 @@
+server:
+  port: 8096
+
+spring:
+  application:
+    name: Reco
+  cloud:
+    config:
+      enabled: true
+      discovery:
+        enabled: true
+        serviceId: CONFIG
+  sleuth:
+    sampler:
+      percentage: 1.0
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          sleuth: DEBUG
+
+eureka:
+  instance:
+    nonSecurePort: ${server.port:8096}
+#    metadataMap:
+#      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/
