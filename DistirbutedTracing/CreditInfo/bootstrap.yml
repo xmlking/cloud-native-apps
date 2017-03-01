@@ -6,10 +6,21 @@ spring:
     name: CreditInfo
   cloud:
     config:
-      enabled: true
+      enabled: false
       discovery:
-        enabled: true
+        enabled: false
         serviceId: CONFIG
+    consul:
+      host: localhost
+      port: 8500
+      #acl-token: 2ee647bd-bd69-4118-9f34-b9a6e9e60746
+      discovery:
+        instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+        #health-check-url: http://127.0.0.1:${server.port}/health
+        enabled: true
+        preferIpAddress: true
+        ip-address: 127.0.0.1
+
   sleuth:
     sampler:
       percentage: 1.0
@@ -22,10 +33,10 @@ logging:
           sleuth: DEBUG
 
 eureka:
-  instance:
-    nonSecurePort: ${server.port:8091}
-#    metadataMap:
-#      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+ # instance:
+  #  nonSecurePort: ${server.port:8085}
   client:
-    serviceUrl:
-      defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/
+    register-with-eureka: false
+    fetch-registry: false
+    #serviceUrl:
+      #defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/

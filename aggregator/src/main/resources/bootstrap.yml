@@ -9,15 +9,23 @@ spring:
       percentage: 1.0
 
   cloud:
-    config:
-      enabled: true
+#    config:
+#      enabled: true
+#      discovery:
+#        enabled: true
+#        serviceId: CONFIG
+    consul:
+      host: localhost
+      port: 8500
       discovery:
+        instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
         enabled: true
-        serviceId: CONFIG
+        preferIpAddress: true
+        ip-address: 127.0.0.1
 
-eureka:
-  instance:
-    nonSecurePort: ${server.port:8085}
-  client:
-    serviceUrl:
-      defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/
+#eureka:
+#  instance:
+#    nonSecurePort: ${server.port:8085}
+#  client:
+#    serviceUrl:
+#      defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/
