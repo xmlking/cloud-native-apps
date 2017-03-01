@@ -19,17 +19,19 @@ Spring Cloud focuses on providing good out of box experience for typical use cas
 
 ### Infrastructure Services 
 
-* **Netflix Eureka:** Service registry & discovery
+* **Consul:** Service registry & discovery
 * **Netflix Hystrix:** Resiliency - Circuit breaker, Fallback, Concurrency, RxJava 
 * **Netflix Hystrix Dashboard:** Monitoring and metrics dashboard
 * **Netflix Turbine:** Aggregate hystrix streams
 * **Netflix Ribbon:** Client-side load-balancing
 * **Netflix Zuul:** Reverse proxy for API gateway
-* **Spring Cloud Config:** Centralized configuration
-* **Spring Cloud Bus:** PubSub messaging over RabbitMQ
-* **Spring Cloud Security:** SSO for APIs - OAuth/JWT  
-* **Logging:** Centralized logging - Logstash, ES, Kibana (LEK)
-* **Swagger:** API Docs 
+* **Spring Cloud Consul Config:** Centralized configuration
+* **Spring Cloud Vault:** Managing secrets
+* **Spring Cloud Bus:** PubSub messaging over Kafka
+* **Zipkin:** Distributed Tracing
+* **Spring Cloud Security:** SSO for APIs - OAuth/JWT -- coming soon
+* **Logging:** Centralized logging - Logstash, ES, Kibana (LEK) -- coming soon
+* **Swagger:** API Docs -- coming soon
 
 
 ![](./presentation/images/system-landscape.png)
@@ -43,7 +45,7 @@ Spring Cloud focuses on providing good out of box experience for typical use cas
 #### Start on Local Machine
 
 Starting  Order
-> Kafka -> Euraka -> Config -> (Producer, GORM, ...), -> (Zuul,  Turbine, Hystrix Dashboard)
+> zk -> Kafka -> Consul -> Git2Consul -> Vault -> zipking -> (Producer,  ...), -> (Hystrix Dashboard)
 
 #### Quickstart examples
 > start following two apps, one at a time as they use same port.
@@ -62,15 +64,10 @@ spring run .
 
 #### Full-stack cloud native examples 
 
-Starting Eureka Server
-```
-cd eureka
-spring run .
-```
 
-Starting Config Server
+Starting Zipkin Service
 ```
-cd config
+cd Zipkin
 spring run .
 ```
 
@@ -78,12 +75,8 @@ Start up Producer Service
 ```
 cd producer
 spring run .
-```
 
-Starting Gorm Service
-```
-cd gorm
-spring run .
+Start other services under Distributed Tracing folder
 ```
 
 Starting Monitoring App
@@ -101,13 +94,6 @@ Starting Aggregate Service
  
 > Follow instructions [aggregator](./aggregator/)
 
-Starting API Gateway
-```
-cd zuul
-spring run .
-```
-
-Starting Blog App
 
 
 
