@@ -105,7 +105,7 @@ class AggregatorController @Autowired constructor(val mybatis: MybatisClient,
     @GetMapping("/")
     fun hello(): String {
         reco.reco();
-        return mybatis.hello();
+        return producer.home();
     }
 
     @GetMapping("members")
@@ -132,7 +132,7 @@ open  class CustomSampler : Sampler {
           {
 
               print("span name " + span.name);
-              if(span.name.equals("http:/home", ignoreCase = false))
+              if(span.name.contains("catalog-services-watch", ignoreCase = false))
               {
                   print("no stream");
                   return false;
