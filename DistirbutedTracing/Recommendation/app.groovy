@@ -5,11 +5,19 @@
 @Grab("spring-cloud-starter-bus-kafka")
 @Grab("spring-cloud-sleuth-stream")
 @Grab("spring-cloud-starter-consul-discovery")
-@Grab("spring-cloud-starter-hystrix")
-//@Grab("spring-cloud-starter-consul-config")
-@Grab("spring-cloud-starter-hystrix-dashboard")
-@groovy.transform.CompileStatic
 @EnableDiscoveryClient
-@EnableHystrixDashboard
-class HystrixDashboard {
+@EnableCircuitBreaker
+@RestController
+@Log
+class Application {
+
+
+    String reco = "Shawshank Redemption"
+
+    @RequestMapping(value = "/reco", produces = "application/json")
+    String reco() {
+
+        "{\"value\": ${reco}}"
+    }
+
 }

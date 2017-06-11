@@ -1,10 +1,15 @@
 server:
-  port: 8989
+  port: 8091
 
 spring:
   application:
-    name: hystrix-dashboard
+    name: CreditInfo
   cloud:
+    config:
+      enabled: false
+      discovery:
+        enabled: false
+        serviceId: CONFIG
     consul:
       host: localhost
       port: 8500
@@ -15,15 +20,17 @@ spring:
         enabled: true
         preferIpAddress: true
         ip-address: 127.0.0.1
-#      config:
-#        enabled: true
-#        prefix: config/master
-#        format: FILES
-    config:
-      enabled: false
-      discovery:
-        enabled: false
-        serviceId: CONFIG
+
+  sleuth:
+    sampler:
+      percentage: 1.0
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          sleuth: DEBUG
 
 eureka:
  # instance:

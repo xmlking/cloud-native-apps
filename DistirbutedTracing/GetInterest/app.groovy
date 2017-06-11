@@ -5,11 +5,21 @@
 @Grab("spring-cloud-starter-bus-kafka")
 @Grab("spring-cloud-sleuth-stream")
 @Grab("spring-cloud-starter-consul-discovery")
-@Grab("spring-cloud-starter-hystrix")
-//@Grab("spring-cloud-starter-consul-config")
-@Grab("spring-cloud-starter-hystrix-dashboard")
-@groovy.transform.CompileStatic
+
 @EnableDiscoveryClient
-@EnableHystrixDashboard
-class HystrixDashboard {
+@EnableCircuitBreaker
+@RestController
+@Log
+class Application {
+
+    String interests = "Cricket, Movies, Music"
+
+    @RequestMapping(value = "/getInterest", produces = "application/json")
+    String getInterest() {
+
+        log.info("Interests are: ${interests}")
+
+        "{\"value\": ${interests}}"
+    }
 }
+

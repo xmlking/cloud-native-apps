@@ -9,20 +9,20 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient
 import org.springframework.cloud.netflix.feign.EnableFeignClients
 import org.springframework.cloud.netflix.feign.FeignClient
+import org.springframework.cloud.sleuth.Sampler
+import org.springframework.cloud.sleuth.Span
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.http.MediaType
 
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.servlet.config.annotation.CorsRegistry
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.bind.annotation.RequestMethod.GET
 
 @EnableDiscoveryClient
 @SpringBootApplication
 @EnableFeignClients
-open class App: CommandLineRunner {
+open class App : CommandLineRunner {
     companion object {
         private val log = LoggerFactory.getLogger(App::class.java)
     }
@@ -77,22 +77,69 @@ interface ProducerClient {
     fun home(): String
 }
 
+@FeignClient("promo")
+interface PromoClient {
+    @RequestMapping(value = "/promo", method = arrayOf(GET))
+    fun promo(): String
+}
+
+@FeignClient("reco")
+interface RecoClient {
+    @RequestMapping(value = "/reco", method = arrayOf(GET))
+    fun reco(): String
+}
+
+@FeignClient("GetAddress")
+interface AddClient {
+    @RequestMapping(value = "/add", method = arrayOf(RequestMethod.GET))
+    fun add(): String
+}
 
 @RestController
-class AggregatorController @Autowired constructor(val mybatis: MybatisClient, val producer: ProducerClient) {
+class AggregatorController @Autowired constructor(val mybatis: MybatisClient,
+                                                  val producer: ProducerClient,
+                                                  val promo: PromoClient,
+                                                  val reco: RecoClient,
+                                                  val addClient: AddClient) {
 
     @GetMapping("/")
     fun hello(): String {
-        return mybatis.hello();
+        reco.reco();
+        return producer.home();
     }
 
     @GetMapping("members")
-    fun members(): List<Member>  {
+    fun members(): List<Member> {
+        addClient.add();
+        promo.promo();
+        reco.reco();
+        producer.home()
         return mybatis.members();
     }
 
     @GetMapping("home")
-    fun home(): String  {
+    fun home(): String {
+        addClient.add();
+        promo.promo();
+        reco.reco();
         return producer.home();
     }
 }
+
+@Configuration
+open  class CustomSampler : Sampler {
+    override fun  isSampled(span: Span) : Boolean
+          {
+
+              print("span name " + span.name);
+              if(span.name.contains("catalog-services-watch", ignoreCase = false))
+              {
+                  print("no stream");
+                  return false;
+              }
+              print("stream to zipkin");
+              return true;
+          }
+      }
+
+

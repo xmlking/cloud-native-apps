@@ -5,11 +5,21 @@
 @Grab("spring-cloud-starter-bus-kafka")
 @Grab("spring-cloud-sleuth-stream")
 @Grab("spring-cloud-starter-consul-discovery")
-@Grab("spring-cloud-starter-hystrix")
-//@Grab("spring-cloud-starter-consul-config")
-@Grab("spring-cloud-starter-hystrix-dashboard")
-@groovy.transform.CompileStatic
+
 @EnableDiscoveryClient
-@EnableHystrixDashboard
-class HystrixDashboard {
+@EnableCircuitBreaker
+@RestController
+@Log
+class Application {
+
+
+    int credit = 700
+
+    @RequestMapping(value = "/credit", produces = "application/json")
+    String getCredit() {
+        credit = 1000 * Math.random()
+        log.info("Produced a value: ${credit}")
+
+        "{\"value\": ${credit}}"
+    }
 }

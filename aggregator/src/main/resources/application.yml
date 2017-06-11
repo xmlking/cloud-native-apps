@@ -1,2 +1,10 @@
 server:
   port: 8085
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          sleuth: DEBUG
+

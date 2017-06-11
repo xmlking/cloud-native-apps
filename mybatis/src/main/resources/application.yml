@@ -1,8 +1,16 @@
 server:
   port: 8083
 
-spring:
+
   h2:
     console:
       enabled: true
       path: /console
+
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          sleuth: DEBUG
